@@ -65,8 +65,10 @@ class MainActivity : AppCompatActivity() {
                     // here we should do some checks on the uri, we do not want root uri
                     // because it will not work on Android 11, or perhaps we have some specific
                     // folder name that we want, etc
-                    if (treeUri.toString().endsWith(":")){
+                    if (Uri.decode(treeUri.toString()).endsWith(":")){
                         Toast.makeText(this,"Cannot use root folder!",Toast.LENGTH_SHORT).show()
+                        // consider asking user to select another folder
+                        return
                     }
                     // here we ask the content resolver to persist the permission for us
                     val takeFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or
