@@ -46,11 +46,6 @@ class MainActivity : AppCompatActivity() {
     // this will present the user with folder browser to select a folder for our data
     private fun askPermission() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
-        intent.addFlags(
-                Intent.FLAG_GRANT_READ_URI_PERMISSION
-                        or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-                        or Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION
-                        or Intent.FLAG_GRANT_PREFIX_URI_PERMISSION)
         startActivityForResult(intent, REQUEST_CODE)
     }
 
